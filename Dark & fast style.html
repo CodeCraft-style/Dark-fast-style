@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark & Fast Cyberpunk Background</title>
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            
+            background-color: #030409;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            background: radial-gradient(circle at center, #0a0b16 0%, #030409 100%);
+        }
+
+        
+        .rain-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .rain-drop {
+            width: 2px;
+            background: transparent;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        
+        .rain-drop::after {
+            content: "";
+            position: absolute;
+            top: -100vh;
+            left: 0;
+            width: inherit;
+            height: inherit;
+            box-shadow: inherit;
+        }
+
+        
+        .layer-1 .rain-drop {
+            height: 35px;
+            animation: rainDown 1.5s linear infinite;
+            box-shadow: 
+                10vw 10vh #00FFFF, 25vw 45vh #FF00FF, 40vw 80vh #00FFFF, 
+                60vw 15vh #FF00FF, 75vw 60vh #00FFFF, 90vw 25vh #FF00FF,
+                15vw 85vh #00FFFF, 35vw 20vh #FF00FF, 55vw 50vh #00FFFF, 
+                80vw 90vh #FF00FF, 95vw 10vh #00FFFF, 5vw 65vh #FF00FF;
+        }
+
+        
+        .layer-2 .rain-drop {
+            height: 20px;
+            opacity: 0.7;
+            animation: rainDown 1s linear infinite;
+            box-shadow: 
+                5vw 25vh #FF00FF, 20vw 70vh #00FFFF, 30vw 10vh #FF00FF, 
+                45vw 90vh #00FFFF, 65vw 40vh #FF00FF, 85vw 75vh #00FFFF,
+                12vw 50vh #FF00FF, 28vw 30vh #00FFFF, 48vw 85vh #FF00FF, 
+                68vw 15vh #00FFFF, 88vw 55vh #FF00FF, 98vw 80vh #00FFFF;
+        }
+
+       
+        .layer-3 .rain-drop {
+            height: 10px;
+            opacity: 0.3;
+            animation: rainDown 1.8s linear infinite;
+            box-shadow: 
+                8vw 15vh #00FFFF, 22vw 60vh #FF00FF, 38vw 35vh #00FFFF, 
+                52vw 80vh #FF00FF, 72vw 25vh #00FFFF, 82vw 95vh #FF00FF,
+                18vw 90vh #00FFFF, 32vw 5vh #FF00FF, 58vw 65vh #00FFFF, 
+                78vw 45vh #FF00FF, 92vw 15vh #00FFFF, 42vw 55vh #FF00FF;
+        }
+
+        @keyframes rainDown {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(100vh); }
+        }
+
+        
+        .meteor-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        
+        .meteor {
+            position: absolute;
+            width: 150px;
+            height: 2px;
+            opacity: 0;
+            animation: shoot linear infinite;
+        }
+ 
+        .meteor::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: -2px;
+            width: 6px;
+            height: 6px;
+            background: #fff;
+            border-radius: 50%;
+        }
+
+        
+        .m1 {
+            top: 10vh; left: -10vw;
+            background: linear-gradient(90deg, transparent, #00FFFF);
+            animation-duration: 2.2s;
+            animation-delay: 0s;
+        }
+        .m1::after { box-shadow: 0 0 15px 4px #00FFFF; }
+
+        .m2 {
+            top: 30vh; left: -20vw;
+            background: linear-gradient(90deg, transparent, #FF00FF);
+            animation-duration: 2.8s;
+            animation-delay: 1.2s;
+        }
+        .m2::after { box-shadow: 0 0 15px 4px #FF00FF; }
+
+        .m3 {
+            top: -10vh; left: 30vw;
+            background: linear-gradient(90deg, transparent, #00FFFF);
+            animation-duration: 1.9s;
+            animation-delay: 0.5s;
+        }
+        .m3::after { box-shadow: 0 0 15px 4px #00FFFF; }
+
+        @keyframes shoot {
+            0% { transform: rotate(45deg) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { transform: rotate(45deg) translateX(120vw); opacity: 0; }
+        }
+
+        
+        .content-card {
+            position: relative;
+            z-index: 10;
+            background: rgba(5, 6, 12, 0.7);
+            border: 1px solid rgba(0, 255, 255, 0.25);
+            border-radius: 20px;
+            padding: 3rem 4rem;
+            text-align: center;
+            color: #fff;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.1), inset 0 0 15px rgba(255, 0, 255, 0.05);
+            backdrop-filter: blur(12px);
+            animation: pulse 4s infinite alternate ease-in-out;
+        }
+
+        .content-card h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #00FFFF, #FF00FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+        }
+
+        .content-card p {
+            color: #8b92a5;
+            font-size: 1.1rem;
+        }
+
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 25px rgba(0, 255, 255, 0.1), inset 0 0 10px rgba(255, 0, 255, 0.05); }
+            100% { box-shadow: 0 0 50px rgba(0, 255, 255, 0.25), inset 0 0 25px rgba(255, 0, 255, 0.15); }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="background-container">
+        
+        
+        <div class="rain-layer layer-3"><div class="rain-drop"></div></div>
+        <div class="rain-layer layer-2"><div class="rain-drop"></div></div>
+        <div class="rain-layer layer-1"><div class="rain-drop"></div></div>
+
+        
+        <div class="meteor-container">
+            <div class="meteor m1"></div>
+            <div class="meteor m2"></div>
+            <div class="meteor m3"></div>
+        </div>
+        
+    </div>
+
+    
+    <div class="content-card">
+        <h1>Dark & fast style</h1>
+    </div>
+</body>
+</html>
